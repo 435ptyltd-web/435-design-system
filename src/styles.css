@@ -1,0 +1,159 @@
+/* 435 Group design system — component styles.
+   @imports the brand tokens, then styles every primitive against them.
+   This is the file rendered designs receive (its @import closure). */
+@import './tokens/tokens.css';
+
+/* ---------------------------------------------------------------- */
+/* Button                                                            */
+/* ---------------------------------------------------------------- */
+.ds-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--ff-label);
+  font-weight: 600;
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+.ds-button:disabled { cursor: not-allowed; opacity: 0.5; }
+
+.ds-button--primary {
+  background: var(--c-ink);
+  color: var(--c-bone);
+  border-color: var(--c-ink);
+}
+.ds-button--primary:hover:not(:disabled) { background: var(--c-sage); border-color: var(--c-sage); }
+
+.ds-button--secondary {
+  background: transparent;
+  color: var(--c-ink);
+  border-color: var(--c-ink);
+}
+.ds-button--secondary:hover:not(:disabled) { background: var(--c-ink); color: var(--c-bone); }
+
+.ds-button--accent {
+  background: var(--c-sage);
+  color: var(--c-ink);
+  border-color: var(--c-sage);
+}
+.ds-button--accent:hover:not(:disabled) { background: var(--c-blush); border-color: var(--c-blush); }
+
+.ds-button--ghost {
+  background: transparent;
+  color: var(--c-ink);
+  border-color: transparent;
+}
+.ds-button--ghost:hover:not(:disabled) { background: var(--c-sand); }
+
+.ds-button--sm { padding: var(--space-1) var(--space-3); font-size: 0.6875rem; }
+.ds-button--md { padding: var(--space-2) var(--space-4); }
+.ds-button--lg { padding: var(--space-3) var(--space-5); font-size: 0.8125rem; }
+
+/* ---------------------------------------------------------------- */
+/* Input                                                              */
+/* ---------------------------------------------------------------- */
+.ds-field { display: flex; flex-direction: column; gap: var(--space-1); font-family: var(--ff-body); }
+
+.ds-field__label {
+  font-family: var(--ff-label);
+  font-weight: 600;
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--c-ink);
+}
+
+.ds-input {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  color: var(--c-ink);
+  background: var(--c-bone);
+  border: 1px solid var(--c-stone);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.ds-input::placeholder { color: var(--c-stone); }
+.ds-input:focus { outline: none; border-color: var(--c-sage); box-shadow: 0 0 0 3px rgba(147, 162, 133, 0.25); }
+.ds-input:disabled { background: var(--c-sand); cursor: not-allowed; opacity: 0.6; }
+.ds-input--error { border-color: var(--c-blush); }
+.ds-input--error:focus { box-shadow: 0 0 0 3px rgba(232, 201, 192, 0.4); }
+
+.ds-field__hint { font-family: var(--ff-mono); font-size: 0.75rem; color: var(--c-stone); }
+.ds-field__hint--error { color: #b5544a; }
+
+/* ---------------------------------------------------------------- */
+/* Card                                                               */
+/* ---------------------------------------------------------------- */
+.ds-card {
+  background: var(--c-bone);
+  border: 1px solid var(--c-stone);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.ds-card--inverse { background: var(--c-ink); color: var(--c-bone); border-color: var(--c-ink); }
+.ds-card--flat { border-color: transparent; }
+
+.ds-card__title {
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: var(--fs-h2);
+  margin: 0;
+}
+.ds-card__body { font-family: var(--ff-body); font-size: var(--fs-body); margin: 0; }
+
+/* ---------------------------------------------------------------- */
+/* Badge                                                              */
+/* ---------------------------------------------------------------- */
+.ds-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--ff-label);
+  font-weight: 600;
+  font-size: 0.6875rem;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: var(--space-1) var(--space-3);
+}
+.ds-badge--ink   { background: var(--c-ink);   color: var(--c-bone); }
+.ds-badge--sage  { background: var(--c-sage);  color: var(--c-ink); }
+.ds-badge--sand  { background: var(--c-sand);  color: var(--c-ink); }
+.ds-badge--stone { background: var(--c-stone); color: var(--c-ink); }
+.ds-badge--blush { background: var(--c-blush); color: var(--c-ink); }
+
+/* ---------------------------------------------------------------- */
+/* Typography                                                         */
+/* ---------------------------------------------------------------- */
+.ds-display { font-family: var(--ff-display); font-weight: 300; font-size: var(--fs-display); color: var(--text); margin: 0; line-height: 1.05; }
+.ds-heading-1 { font-family: var(--ff-display); font-weight: 300; font-size: var(--fs-h1); color: var(--text); margin: 0; }
+.ds-heading-2 { font-family: var(--ff-display); font-weight: 300; font-size: var(--fs-h2); color: var(--text); margin: 0; }
+.ds-heading-3 { font-family: var(--ff-label); font-weight: 600; font-size: var(--fs-h3); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--text); margin: 0; }
+.ds-body { font-family: var(--ff-body); font-size: var(--fs-body); color: var(--text); margin: 0; }
+.ds-label-text { font-family: var(--ff-label); font-weight: 600; font-size: var(--fs-label); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--text); }
+.ds-mono { font-family: var(--ff-mono); font-size: 0.875rem; color: var(--text); }
+
+/* ---------------------------------------------------------------- */
+/* ColorSwatch                                                        */
+/* ---------------------------------------------------------------- */
+.ds-swatch { display: inline-flex; flex-direction: column; align-items: flex-start; gap: var(--space-1); width: 96px; }
+.ds-swatch__chip { width: 96px; height: 64px; border-radius: var(--radius); border: 1px solid rgba(31,33,32,0.12); }
+.ds-swatch__name { font-family: var(--ff-label); font-weight: 600; font-size: 0.6875rem; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--c-ink); }
+.ds-swatch__hex { font-family: var(--ff-mono); font-size: 0.75rem; color: var(--c-stone); }
+
+/* ---------------------------------------------------------------- */
+/* Divider                                                            */
+/* ---------------------------------------------------------------- */
+.ds-divider { border: none; border-top: 1px solid var(--c-stone); margin: var(--space-3) 0; }
+.ds-divider--accent { border-top-color: var(--c-sage); }

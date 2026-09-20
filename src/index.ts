@@ -17,3 +17,15 @@ export type { ColorSwatchProps, BrandColorName } from './components/ColorSwatch'
 
 export { Divider } from './components/Divider';
 export type { DividerProps } from './components/Divider';
+
+export { ModelExport } from './components/ModelExport';
+export type { ModelExportProps, ModelExportFormat } from './components/ModelExport';
+
+export { exportSTL, exportOBJ, exportGLB, export3MF } from './three/exporters';
+export type { ExportedFile, ThreeMFOptions } from './three/exporters';
+
+export { analyzeGeometry, repairGeometry } from './three/meshAnalysis';
+export type { MeshAnalysis, MeshDimensionsMM } from './three/meshAnalysis';
+
+export { recommendPrintSettings } from './three/printRecommendations';
+export type { PrintRecommendations, PrintOrientation } from './three/printRecommendations';
